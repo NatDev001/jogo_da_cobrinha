@@ -5,11 +5,12 @@ import config
 def rodar_jogo():
 
     # configurações
-    cor_cobra = config.carregar_cor()
+    cor_cobra, modo_prog = config.carregar_cor()
+
     TAMANHO_CELULA = 20
     LARGURA_CAMPO = 400
     ALTURA_CAMPO = 400
-    VELOCIDADE = 0.15 
+    VELOCIDADE = 0.15
 
     cores_corpo = {
         "green": "darkgreen",
@@ -87,6 +88,9 @@ def rodar_jogo():
             pontos += 10
             window["-PONTOS-"].update(f"Pontuação: {pontos}")
             comida = gerar_comida()
+            if modo_prog:
+                VELOCIDADE = VELOCIDADE-0.002
+                VELOCIDADE = max(0.05, VELOCIDADE)
         else:
             cobra.pop() # remove a cauda se não comeu
 
