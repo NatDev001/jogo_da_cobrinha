@@ -53,7 +53,7 @@ def tela_configuracoes():
                 "Verde": "green", "Azul": "blue", "Amarelo": "yellow",
                 "Vermelho": "red", "Roxo": "purple", "Branco": "white"
             }
-            salvar_cor(cores_map[event])
+            salvar_cor(cores_map[event], modo_prog)
             sg.popup(f"Cor alterada para {event}!")
 
         if event == "-PROG-":
